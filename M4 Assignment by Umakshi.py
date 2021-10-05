@@ -6,6 +6,7 @@ class book:
         self.publisher=pub
         self.price=p
         self.copies=cp
+        
     #Using getter and setter method for title variable    
     def get_title(self):
         return self._title
@@ -13,6 +14,7 @@ class book:
         self._title=tit
         return
     title=property(get_title,set_title)
+    
     #Using getter and setter method for author variable  
     def get_author(self):
         return self._author
@@ -20,6 +22,7 @@ class book:
         self._author=aut
         return
     author=property(get_author,set_author)
+    
     #Using getter and setter method for publisher variable  
     def get_publisher(self):
         return self._publisher
@@ -27,6 +30,7 @@ class book:
         self._publisher=pub
         return
     publisher=property(get_publisher,set_publisher)
+    
     #Using getter and setter method for price variable  
     def get_price(self):
         return self._price
@@ -41,6 +45,7 @@ class book:
         self._copies=cp
         return
     copies=property(get_copies,set_copies)
+    
     #defining a method for calculating royality
     def get_royality(self):
         if self.copies<=500:#10% of price for first 500 copies
@@ -63,12 +68,14 @@ class ebook(book):
         self._format=form
         return
     format=property(get_format,set_format)
+    
     #Redifining royality method 
     def get_royality(self):
         ryl=super().get_royality()
         ryl=ryl-ryl*12/100 #deduct GST of 12% onn ebook 
         self._royality=ryl
         return self._royality
+    
 #making objects
 if __name__=="__main__":
     #b1 object is created for book class
